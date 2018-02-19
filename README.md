@@ -5,24 +5,42 @@ This is an introduction to Docker and Deployment. The files were taken from [thi
 ## Prerequisites
 
 - Install Docker
-- clone git repo
+- clone the git repo for the Dockerfile and configuration files
+- IMPORTANT: make sure the web application has been built and is named "example-webapp-linux". This will not work if the .bin file for the web application is named differently.
+- This only works for the web application for linux
+- port 3000 must be unoccupied
 
 ## Run Dockerfile/ Build Image
 
-- Run in terminal: docker build . -t guestbook
+The Docker image can be built in two ways - through the Makefile or terminal commands:
+- Makefile commands: **make build**
+  + Optional Parameters:
+    '''
+    DEV_NAME=name of developer creating the image (default=guevarae)
+    IMAGE_NAME=name of the image (default=guestbook)
+    VERSION=version number (default=latest)
+    '''
+
+- terminal commands: **docker build . -t IMAGE_NAME/DEV_NAME:VERSION**
+  + fill in IMAGE_NAME, DEV_NAME, and VERSION accordingly
 
 ## Run Docker Container
 
-- Run in terminal: docker run -it -p 0.0.0.0:3000:3000 guestbook
-- Run in background container: docker run -it -d -p 0.0.0.0:3000:3000 guestbook
+- Makefile command: make run
+  + Optional Parameters:
+    '''
+    DEV_NAME=name of developer creating the image (default=guevarae)
+    IMAGE_NAME=name of the image (default=guestbook)
+    VERSION=version number (default=latest)
+    '''
+
+- Terminal command: docker run -it -p 0.0.0.0:3000:3000 IMAGE_NAME/DEV_NAME:VERSION
+  + fill in IMAGE_NAME, DEV_NAME, and VERSION accordingly
 
 ## Open Website
 
-- open web browser and type: 0.0.0.0:3000
+- open a web browser and type: 0.0.0.0:3000
 
-## Editing Dockerfile/ TODO
-
-- ADD MULTISTAGE BUILD
-- ADD DATABASE USING REDIS
+## Editing Dockerfile
 
 

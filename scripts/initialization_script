@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /application
 
-wget http://ipinfo.io/ip -qO - > ./hostip
-nodejs ./ipshow.js
+service redis_6379 start
+cd /app/dist
+./example-webapp-linux
