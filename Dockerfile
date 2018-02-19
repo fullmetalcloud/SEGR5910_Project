@@ -12,7 +12,7 @@ RUN apt-get update && \
     cd utils && \
     ./install_server.sh 
 
-ADD ./scripts/initialization_script /app/initialization_script
+COPY ./scripts/initialization_script /app/initialization_script
 
 EXPOSE 3000 3000
 
