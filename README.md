@@ -58,10 +58,4 @@ The initialization_script configuration
   - starts redis-server
   - goes into the app folder to start running the webapp called *example-webapp-linux*
 
-## Open Website
-
-- open a web browser and type: 0.0.0.0:3000
-
-## Editing Dockerfile
-
 
