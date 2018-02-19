@@ -16,9 +16,9 @@ The Docker image can be built in two ways - through the Makefile or terminal com
 
   - Makefile commands: ```make build```
     + Optional Parameters:
-      **DEV_NAME**=name of developer creating the image (default=guevarae)
-      **IMAGE_NAME**=name of the image (default=guestbook)
-      **VERSION**=version number (default=latest)
+      * **DEV_NAME**=name of developer creating the image (default=guevarae)
+      * **IMAGE_NAME**=name of the image (default=guestbook)
+      * **VERSION**=version number (default=latest)
 
     + Example: ```make build DEV_NAME=jerryj IMAGE_NAME=hostbook VERSION=1.0.1```
 
@@ -32,9 +32,9 @@ The docker image can be run in two ways:
 
   - Makefile command: ```make run```
     + Optional Parameters:
-      **DEV_NAME**=name of developer creating the image (default=guevarae)
-      **IMAGE_NAME**=name of the image (default=guestbook)
-      **VERSION**=version number (default=latest)
+      * **DEV_NAME**=name of developer creating the image (default=guevarae)
+      * **IMAGE_NAME**=name of the image (default=guestbook)
+      * **VERSION**=version number (default=latest)
 
   - Terminal command: ```docker run -it -p 0.0.0.0:3000:3000 IMAGE_NAME/DEV_NAME:VERSION```
     + fill in IMAGE_NAME, DEV_NAME, and VERSION accordingly
