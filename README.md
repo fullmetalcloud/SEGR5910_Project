@@ -47,7 +47,7 @@ The docker image can be run in two ways:
 
 The Dockerfile configuration
   - uses Ubuntu OS
-  - runs apt-get update and installs wget and nom
+  - runs apt-get update and installs wget and npm
   - creates app directory and adds the webapp files to it
     + webapp loc: https://s3-us-west-2.amazonaws.com/techops-interview-webapp/webapp.tar.gz
   - installs Redis
