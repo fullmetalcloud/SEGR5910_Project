@@ -4,60 +4,57 @@ This is an introduction to Docker and Deployment. The files were taken from [thi
 
 ## Prerequisites
 
-- Install Docker
-- Clone the git repo for the Dockerfile and configuration files.
+- Install Docker and Docker-compose (included for OSX and Linux)
+- Clone the git repo for the needed scripts to run. 
 - This only works for the web application for linux.
 - Port 3000 must be unoccupied.
 - IMPORTANT: make sure the web application has been built and is named "example-webapp-linux". This will not work if the .bin file for the web application is named differently.
 
-## Run Dockerfile/ Build Image
+## Build and start containers to test application
+All files necessary to run the application are in the *scripts* folder. If this the first time running locally, the base image must be built first. Run this command in a shell:
+```
+docker build -f Dockerfile-base . -t base
+```
 
-The Docker image can be built in two ways - through the Makefile or terminal commands:
+To build the images necessary for running the application, run this command:
+```
+docker-compose build
+```
 
-  - Makefile commands: ```make build```
-    + Optional Parameters:
-      * **DEV_NAME**=name of developer creating the image (default=guevarae)
-      * **IMAGE_NAME**=name of the image (default=guestbook)
-      * **VERSION**=version number (default=latest)
+To run the application with redis-master and redis-slave containers, run this command:
+```
+docker-compose up
+```
 
-    + Example: ```make build DEV_NAME=jerryj IMAGE_NAME=hostbook VERSION=1.0.1```
+The above commands can be run in the given shell script *run-test*.
 
-  - terminal commands: ```docker build . -t IMAGE_NAME/DEV_NAME:VERSION```
-    + fill in IMAGE_NAME, DEV_NAME, and VERSION accordingly
-    + Example: ```docker build . -t hostbook/jerryj:1.0.1```
+To use the application, open a web browser and type:
+```
+0.0.0.0:3000 or localhost:3000
+```
 
-## Run Docker Container
-
-The docker image can be run in two ways: 
-
-  - Makefile command: ```make run```
-    + Optional Parameters:
-      * **DEV_NAME**=name of developer creating the image (default=guevarae)
-      * **IMAGE_NAME**=name of the image (default=guestbook)
-      * **VERSION**=version number (default=latest)
-
-  - Terminal command: ```docker run -it -p 0.0.0.0:3000:3000 IMAGE_NAME/DEV_NAME:VERSION```
-    + fill in IMAGE_NAME, DEV_NAME, and VERSION accordingly
-
-**NOTE:** To build and run in one line, use the Makefile command with the same optional parameters ```make build-run```
-
-## Open Website
-
-  open a web browser and type: ```0.0.0.0:3000```
+To end the application and the redis containers, run this command:
+```
+Docker-compose down
+```
 
 ## Dockerfile and initialization Configuration
 
-The Dockerfile configuration
+The Dockerfile-base description
   - uses Ubuntu OS
   - runs apt-get update and installs wget and npm
-  - creates app directory and adds the webapp files to it
-    + webapp loc: https://s3-us-west-2.amazonaws.com/techops-interview-webapp/webapp.tar.gz
-  - installs Redis
-  - adds the initialization_script for startup of the webapp in a container
-  - exposes port 3000 3000 
 
-The initialization_script configuration
-  - starts redis-server
-  - goes into the app folder to start running the webapp called *example-webapp-linux*
+The Dockerfile-guestbook description
+  - uses base image (created using Dockerfile-base)
+  - creates app directory and adds the webapp files to it
+    + webapp loc: https://raw.githubusercontent.com/michaeljon/SU_SEGR_5910_18WQ/master/webapp.tar.gz
+  - adds the initialization_script for startup of the webapp in a container
+  - exposes port 3000 3000
+  - uses the initialization_script to run the web server
+
+The docker-compose description
+  - builds the guestbook services using the Dockerfile-guestbook file
+  - builds the redis-master and redis-slave services using the built-in image for Redis
+  - makes the redis-slave a slave of redis-master (command in redis-slave service)
 
 
