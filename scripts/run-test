@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Create Base Image
+docker build -f Dockerfile-base . -t base
+
+# Run docker-compose to build, start, and run containers
+docker-compose build
+docker-compose down
+docker-compose up -d

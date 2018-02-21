@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  guestbook:
+    build: 
+      context: .
+      dockerfile: Dockerfile-guestbook
+    ports:
+      - "0.0.0.0:3000:3000"
+
+  redis-master:
+    image: redis:4.0.8
+
+  redis-slave:
+    image: redis:4.0.8
+    command: redis-server --slaveof redis-master 6379

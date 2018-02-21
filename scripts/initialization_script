@@ -1,5 +1,4 @@
 #!/bin/bash
 
-service redis_6379 start
-cd app
+cd /app/webapp
 ./dist/example-webapp-linux

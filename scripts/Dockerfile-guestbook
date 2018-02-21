@@ -1,0 +1,15 @@
+FROM base
+
+RUN mkdir app && cd app && \
+    wget https://raw.githubusercontent.com/michaeljon/SU_SEGR_5910_18WQ/master/webapp.tar.gz && \
+    tar xzf webapp.tar.gz 
+    
+COPY ./initialization_script /app/initialization_script
+
+EXPOSE 3000 3000
+
+CMD ["bash", "/app/initialization_script"]
+
+
+
+
