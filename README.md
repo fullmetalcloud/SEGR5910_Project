@@ -1,6 +1,6 @@
 # SEGR5910_Project
 
-This is an introduction to Docker and Deployment. The files were taken from [this](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook-go). This is for educational purposes only. 
+This is an introduction to Docker and Deployment. The files used were from [this](https://github.com/kubernetes/kubernetes/tree/master/examples/guestbook-go). This is for educational purposes only. 
 
 ## Prerequisites
 
