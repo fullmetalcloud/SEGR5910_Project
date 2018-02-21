@@ -35,7 +35,7 @@ To use the application, open a web browser and type:
 
 To end the application and the redis containers, run this command:
 ```
-Docker-compose down
+docker-compose down
 ```
 
 ## Dockerfile and initialization Configuration
