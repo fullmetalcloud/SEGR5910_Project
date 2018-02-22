@@ -1,7 +1,7 @@
 Individual Project - Lessons Learned
 
 I was able to deploy the project. I have learned both conceptual and technical 
-lessons from this project. This isthe first time I have used Docker and Redis,
+lessons from this project. This is the first time I have used Docker and Redis,
 so I spent more time than expected to learn the tools and the application 
 itself. I took the time to learn the tools because I figure that I will 
 eventually use or see these tools in the working world. This project was a good
