@@ -1,12 +1,13 @@
 Individual Project - Lessons Learned
 
-I have learned both conceptual and technical lessons from this project. This is
-the first time I have used Docker and Redis, so I spent more time than expected
-to learn the tools and the application itself. I took the time to learn the 
-tools because I figure that I will eventually use or see these tools in the 
-working world. This project was a good lesson in the DevOps and real world, 
-i.e. expect asking many questions to developers, learn new tools, and expect 
-constant changes to applications and your own setup.   
+I was able to deploy the project. I have learned both conceptual and technical 
+lessons from this project. This isthe first time I have used Docker and Redis,
+so I spent more time than expected to learn the tools and the application 
+itself. I took the time to learn the tools because I figure that I will 
+eventually use or see these tools in the working world. This project was a good
+lesson in the DevOps and real world, i.e. expect asking many questions to 
+developers, learn new tools, and expect constant changes to applications and
+your own setup.   
 
 The technical lessons I learned was learned through lots of trial and error 
 using Docker and Redis. I learned how to build images and containers from the 
